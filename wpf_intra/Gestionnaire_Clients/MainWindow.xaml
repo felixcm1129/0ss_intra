@@ -29,7 +29,7 @@
                 </Grid.RowDefinitions>
                 <TextBlock Text="Liste des clients" HorizontalAlignment="Left"/>
                 <Button Content="Nouveau Client" HorizontalAlignment="Center"/>
-                <ListView Grid.Row="1" ItemsSource="{Binding Customer}" SelectedItem="{Binding SelectedCustomer}">
+                <ListView Grid.Row="1" ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer}">
                     <ListView.ItemTemplate >
                         <DataTemplate>
                             <TextBlock Text="{Binding Info}"/>

@@ -23,8 +23,18 @@ namespace Customers
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         private Customer selectedCustomer;
-        private List<Customer> customers { get; set; }
+        private List<Customer> list_customers { get; set; }
+        private ObservableCollection<Customer> customers;
 
+        public ObservableCollection<Customer> Customers
+        {
+            get => customers;
+            set 
+            {
+                customers = value;
+                OnPropertyChanged();
+            }
+        }
         public Customer SelectedCustomer 
         { 
             get => selectedCustomer;
@@ -38,7 +48,7 @@ namespace Customers
 
         public MainWindow()
         {
-            customers = new List<Customer>()
+            list_customers = new List<Customer>()
             {
                 new Customer() {Name="Ayanna", LastName="Vargas",Address="401-3122 Nullam Ave", City="Pickering",Province="ON", PostalCode="N6C 7M5", PicturePath="images/user.png", ContactInfo="Work : 624-767-4994"},
                 new Customer() {Name="Whitney", LastName="Parks",Address="563-3207 Mi Rd.", City="Greater Sudbury",Province="ON", PostalCode="N9G 5V1", PicturePath="images/user.png", ContactInfo="Cell : 175-370-4839"},
@@ -66,12 +76,13 @@ namespace Customers
 
             InitializeComponent();
 
-           // InitValues();
+            InitValues();
+
         }
 
         private void InitValues()
         {
-            
+            Customers = new ObservableCollection<Customer>(list_customers);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

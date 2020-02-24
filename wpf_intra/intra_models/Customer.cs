@@ -15,21 +15,9 @@ namespace intra_models
         public string PostalCode { get; set; }
         public string ContactInfo { get; set; }
         public string PicturePath { get; set; }
-
-        public string Info
-        {
-            get
-            {
-                return LastName + ", " + Name;
-            }
-        }
+        public string Info => LastName + ", " + Name; 
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
     }
 }
