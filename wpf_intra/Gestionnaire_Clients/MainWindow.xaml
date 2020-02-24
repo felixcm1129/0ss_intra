@@ -9,7 +9,13 @@
         Title="Gestion de clients" Height="450" Width="800">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Fichier"/>
+            <MenuItem Header="_Fichier">
+                <TextBlock>Ouvrir...</TextBlock>
+                <TextBlock>Sauvegarder</TextBlock>
+                <TextBlock>Fermer</TextBlock>
+                <TextBlock>Nouveau Client</TextBlock>
+                <TextBlock>Quitter</TextBlock>
+            </MenuItem>
             <MenuItem Header="_Édition"/>
             <MenuItem Header="_Affichage"/>
         </Menu>
@@ -28,8 +34,8 @@
                     <RowDefinition Height="18*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Liste des clients" HorizontalAlignment="Left"/>
-                <Button Content="Nouveau Client" HorizontalAlignment="Center"/>
-                <ListView Grid.Row="1" ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer}">
+                <Button Content="Nouveau Client" HorizontalAlignment="Center" Click="Button_Click_1"/>
+                <ListView x:Name="list" Grid.Row="1" ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer}">
                     <ListView.ItemTemplate >
                         <DataTemplate>
                             <TextBlock Text="{Binding Info}"/>
@@ -55,20 +61,20 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="Prénom :" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedCustomer.Name}"/>
+                <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" x:Name="prenom" Text="{Binding SelectedCustomer.Name}"/>
                 <Label Grid.Row="0" Grid.Column="2" Content="Nom de famille :" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" Text="{Binding SelectedCustomer.LastName}"/>
+                <TextBox Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" x:Name="nom" Text="{Binding SelectedCustomer.LastName}"/>
                 <Label Grid.Row="1" Grid.Column="0" Content="Adresse" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Text="{Binding SelectedCustomer.Address}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" x:Name="adresse" Text="{Binding SelectedCustomer.Address}"/>
                 <Label Grid.Row="2" Grid.Column="0" Content="Ville :" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedCustomer.City}"/>
+                <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" x:Name="ville" Text="{Binding SelectedCustomer.City}"/>
                 <Label Grid.Row="2" Grid.Column="2" Content="Province" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" Text="{Binding SelectedCustomer.Province}"/>
+                <TextBox Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" x:Name="pro" Text="{Binding SelectedCustomer.Province}"/>
                 <Label Grid.Row="3" Grid.Column="0" Content="Code Postal :" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedCustomer.PostalCode}"/>
+                <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" x:Name="post" Text="{Binding SelectedCustomer.PostalCode}"/>
                 <Label Grid.Row="4" Grid.Column="0" Content="Contact :" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Text="{Binding SelectedCustomer.ContactInfo}"/>
-                <Button Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="Supprimer Client"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" x:Name="info" Text="{Binding SelectedCustomer.ContactInfo}"/>
+                <Button Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="Supprimer Client" Click="Button_Click"/>
                 <Image Grid.Row="6" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="{Binding SelectedCustomer.PicturePath}" Margin="6"/>
             </Grid>
         </Grid>

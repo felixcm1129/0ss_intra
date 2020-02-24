@@ -91,5 +91,29 @@ namespace Customers
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            selectedCustomer.Name = null;
+            selectedCustomer.LastName = null;
+            selectedCustomer.Address = null;
+            selectedCustomer.PicturePath = null;
+            selectedCustomer.PostalCode = null;
+            selectedCustomer.Province = null;
+            selectedCustomer.City = null;
+            selectedCustomer.ContactInfo = null;
+            prenom.Text = "";
+            nom.Text = "";
+            pro.Text = "";
+            post.Text = "";
+            ville.Text = "";
+            info.Text = "";
+            adresse.Text = "";
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
