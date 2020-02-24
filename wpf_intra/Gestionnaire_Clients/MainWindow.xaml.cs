@@ -31,7 +31,7 @@ namespace Customers
             set
             { 
                selectedCustomer = value;
-                OnPropertyChanged();
+               OnPropertyChanged();
             }
              
         }
@@ -66,6 +66,12 @@ namespace Customers
 
             InitializeComponent();
 
+           // InitValues();
+        }
+
+        private void InitValues()
+        {
+            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

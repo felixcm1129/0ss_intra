@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Customers"
         mc:Ignorable="d"
         DataContext="{Binding RelativeSource={RelativeSource self}}"
-        Title="Gestion Client" Height="450" Width="800">
+        Title="Gestion de clients" Height="450" Width="800">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Fichier"/>
@@ -17,5 +17,59 @@
             <TextBlock Text="Client Sélectionné : "/>
             <TextBlock Text="{Binding SelectedCustomer.LastName}"/>
         </StatusBar>
+        <Grid Margin="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" MinWidth="150"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="18*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Liste des clients"/>
+                <ListView Grid.Row="1" ItemsSource="{Binding Customer}" SelectedItem="{Binding SelectedCustomer}">
+                    <ListView.ItemTemplate >
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Info}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Prénom :" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedCustomer.Name}"/>
+                <Label Grid.Row="0" Grid.Column="2" Content="Nom de famille :" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" Text="{Binding SelectedCustomer.LastName}"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Adresse" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Text="{Binding SelectedCustomer.Address}"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="Ville :" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedCustomer.City}"/>
+                <Label Grid.Row="2" Grid.Column="2" Content="Province" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" Text="{Binding SelectedCustomer.Province}"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="Code Postal :" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedCustomer.PostalCode}"/>
+                <Label Grid.Row="4" Grid.Column="0" Content="Contact :" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Text="{Binding SelectedCustomer.ContactInfo}"/>
+                <Button Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" Content="Supprimer Client"/>
+                <Image Grid.Row="6" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="{Binding SelectedCustomer.PicturePath}" Margin="6"/>
+            </Grid>
+        </Grid>
     </DockPanel>
 </Window>
