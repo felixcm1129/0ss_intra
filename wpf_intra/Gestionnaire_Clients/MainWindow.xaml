@@ -27,7 +27,8 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="18*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Liste des clients"/>
+                <TextBlock Text="Liste des clients" HorizontalAlignment="Left"/>
+                <Button Content="Nouveau Client" HorizontalAlignment="Center"/>
                 <ListView Grid.Row="1" ItemsSource="{Binding Customer}" SelectedItem="{Binding SelectedCustomer}">
                     <ListView.ItemTemplate >
                         <DataTemplate>
